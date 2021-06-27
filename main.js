@@ -1,44 +1,42 @@
-menu_list_array = ["Veg Margherita Pizza",
-"Chicken tikki pizza",
- "Paneer tikki pizza",
- "Classic pizza" ,
- "Supreme classic pizza",
- "Chicken fry pizza",
- "Supreme cheesy pizza",
- "Deluxe cheese chicken pizza",
-                    ];
+Student_slave_array=[];
+function submit(){
+    var display_array=[]
+    for(var j=1;j<=4;j++){
+        var Name1=document.getElementById("Student"+j).value;
+        Student_slave_array.push(Name1);
+        console.log(Name1)
+    }
+    var length1=Student_slave_array.length
+    console.log(length1)
 
-function getmenu(){
-var htmldata;
-htmldata="<ol class 'menulist'>"
-menu_list_array.sort();
-for(var i=0; i<menu_list_array.length;i++){
-    htmldata+'<li>' + menu_list_array[i]+ '</li>'
-}
-htmldata=htmldata+"</ol>"
-document.getElementById("display_menu").innerHTML=htmldata;
-//Complete the code
-}
+    console.log(Student_slave_array)
+for(var k=0;k<length1;k++){
+    display_array.push("<h4> name: "+Student_slave_array[k]+"</h4>")
+    console.log(display_array)
+}document.getElementById("no_comma_display").innerHTML=display_array
+var no_comma_array=display_array.join(" ")
+console.log(no_comma_array)
+document.getElementById("display_name").innerHTML=no_comma_array
 
-function add_item(){
-var htmldata;
-var item=document.getElementById("add_item").value;
-menu_list_array.sort()
-htmldata="<section class ='cards'>"
-for(var i=0;i<menu_list_array;i++){
-    htmldata=htmldata+'<div class="card">'
-    +'<img src="images/pizzaImg.png"/>'
-    +menu_list_array[i]+'</div>'
+    
+    document.getElementById("SendIt").style.display="none"
+    document.getElementById("sort_button").style.display="inline-block"
 }
-htmldata=htmldata+"</section>"
-document.getElementById("display_addedmenu").innerHTML=htmldata;
-//Complete the code
+function sorting(){
+Student_slave_array.sort()
 
+console.log(Student_slave_array)
+var display_array_1=[]
+var length2=Student_slave_array.length
+console.log(length2)
+for(var k=0;k<length2;k++){
+    display_array_1.push("<h4> name: "+Student_slave_array[k]+"</h4>")
+    console.log(display_array_1)
+}document.getElementById("no_comma_display").innerHTML=display_array_1
+var no_comma_array=display_array_1.join(" ")
+console.log(no_comma_array)
+document.getElementById("display_name").innerHTML=no_comma_array
 }
-
-function add_top(){
-    var item=document.getElementById("add_item").value;
-menu_list_array.push(item);
-add_item()
-//Complete the code
+function update(){
+    document.getElementById("display_name").innerHTML="<h1>"+Student_slave_array+"</h1>"
 }
