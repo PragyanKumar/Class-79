@@ -1,23 +1,44 @@
-Student_slave_array=[];
-function submit(){
-    var Name1=document.getElementById("Student1").value;
-    var Name2=document.getElementById("Student2").value;
-    var Name3=document.getElementById("Student3").value;
-    var Name4=document.getElementById("Student4").value;
+menu_list_array = ["Veg Margherita Pizza",
+"Chicken tikki pizza",
+ "Paneer tikki pizza",
+ "Classic pizza" ,
+ "Supreme classic pizza",
+ "Chicken fry pizza",
+ "Supreme cheesy pizza",
+ "Deluxe cheese chicken pizza",
+                    ];
 
-    Student_slave_array.push(Name1)
-    Student_slave_array.push(Name2)
-    Student_slave_array.push(Name3)
-    Student_slave_array.push(Name4)
-
-    console.log(Student_slave_array)
-
-    document.getElementById("display_name").innerHTML= Student_slave_array
-    document.getElementById("SendIt").style.display="none"
-    document.getElementById("sort_button").style.display="inline-block"
+function getmenu(){
+var htmldata;
+htmldata="<ol class 'menulist'>"
+menu_list_array.sort();
+for(var i=0; i<menu_list_array.length;i++){
+    htmldata+'<li>' + menu_list_array[i]+ '</li>'
 }
-function sorting(){
-Student_slave_array.sort()
-document.getElementById("display_name").innerHTML=Student_slave_array
-console.log(Student_slave_array)
+htmldata=htmldata+"</ol>"
+document.getElementById("display_menu").innerHTML=htmldata;
+//Complete the code
+}
+
+function add_item(){
+var htmldata;
+var item=document.getElementById("add_item").value;
+menu_list_array.sort()
+htmldata="<section class ='cards'>"
+for(var i=0;i<menu_list_array;i++){
+    htmldata=htmldata+'<div class="card">'
+    +'<img src="images/pizzaImg.png"/>'
+    +menu_list_array[i]+'</div>'
+}
+htmldata=htmldata+"</section>"
+document.getElementById("display_addedmenu").innerHTML=htmldata;
+//Complete the code
+
+}
+
+function add_top(){
+    var item=document.getElementById("add_item").value;
+menu_list_array.push(item);
+add_item()
+//Complete the code
 }
